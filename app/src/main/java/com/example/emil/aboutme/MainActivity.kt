@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 //        setContentView(R.layout.activity_main)
+        binding.myName = myNameInKt
         initailComponent()
     }
 
@@ -29,10 +30,19 @@ class MainActivity : AppCompatActivity() {
         view.visibility = View.GONE
         nicknameTextView.visibility = View.VISIBLE
 */
+        /* add data binding
         binding.nicknameText.text = binding.nicknameEdit.text
         binding.nicknameEdit.visibility = View.GONE
         view.visibility = View.GONE
         binding.nicknameText.visibility = View.VISIBLE
+*/
+        binding.apply {
+            myName?.nickname = nicknameEdit.text.toString()
+            invalidateAll()
+            nicknameEdit.visibility = View.GONE
+            doneButton.visibility = View.GONE
+            nicknameText.visibility = View.VISIBLE
+        }
 
         // Hide the keyboard
         val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -49,14 +59,12 @@ class MainActivity : AppCompatActivity() {
 //        doneButtom = findViewById(R.id.done_button)
 //        doneButtom.setOnClickListener(doneButtom_click)
         binding.doneButton.setOnClickListener(doneButtom_click)
-
     }
 
 //    lateinit var editText: EditText
 //    lateinit var nicknameTextView: TextView
 //    lateinit var doneButtom: Button
     private lateinit var binding: ActivityMainBinding
-
-
+    private val myNameInKt = MyName("Nori")
 
 }
