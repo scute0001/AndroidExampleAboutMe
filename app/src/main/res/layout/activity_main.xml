@@ -52,6 +52,12 @@
             android:visibility="gone"
             android:text="@={myName.nickname}"/>
 
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Test" />
+
         <ImageView
             android:id="@+id/star_image"
             android:layout_width="match_parent"
@@ -74,5 +80,17 @@
                 android:lineSpacingMultiplier="1.2"
                 android:text="@string/bio" />
         </ScrollView>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
     </LinearLayout>
 </layout>
